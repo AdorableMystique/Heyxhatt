@@ -73,30 +73,25 @@ This allows developers to build complex PHP applications with confidence, avoidi
 ```bash
 git clone https://github.com/yourusername/Haxhatten.git
 Ensure your server runs PHP 8.1+.
+
+2.) Ensure PECL and php-ast are 1nstalled and working. 
+
+3.)
 Create a config.ini file in the document root with your system configuration:
 [System]
-DevMode=true
-DefaultLang=en-US
-Blockmode=Blacklist
-LogDir=logs
-ApplicationsDirectory=apps
+LogDir=Logs/;                   Directory where the logs are found
+ApplicationsDirectory=apps/;    Directory where the apps are stored
+Blockmode=Blacklist;            Has two modes, wWhitelist and Blacklist
+DevMode=True;                   True means system will create app and UI templates containing basic information for each, respectively. False dumps an error in the logs
+DefaultLang=en-us;            Default Language
 
 [UI]
-Default=FreyjaOne
+Default=FreyjaOne;              Name of the default UI interface
 
 [BlockmodeList]
-PHP=exec,shell_exec,system
-HTML=<script>
-SQL=DROP,DELETE
-Set permissions for the Templates and logs directories to allow PHP read/write.
-Access index.php in your browser to see Häxhatten in action.
-Usage
-Extend the application class to create new apps.
-Implement the section methods:
-class MyApp extends application {
-    public static function Body(): string { return 'Hello World'; }
-    public static function SideNav(): array { return []; }
-    // Other sections... see app./test.inc for examples.
+PHP=eval, include, file_get_contents, file_put_contents, copy, chown, spl_autoload_register,call_user_func, call_user_func_array, forward_static_call, curl_exec,stream_socket_client, fsockopen, file, curl_multi_exec, ob_get_contents,ob_get_clean, http_response_code, flush, dl, header, setcookie,ignore_user_abort, set_time_limit, ini_set, putenv, getenv, ini_restore,ReflectionFunction, ReflectionClass, readfile, touch, scandir, glob,chmod, rename, unlink, fwrite, fopen, include_once, require_once,pcntl_exec, popen, proc_open, assert, exec, passthru, shell_exec,system, preg_replace, create_function, echo, print_r, require, die,exit, obj_clean, obj_start, obj_end, obj_flush;
+HTML=<html,<body,<head,<link rel,<style,</style>,<script>,</script>;
+SQL=1234;
 }
 Place your app .inc files in the configured ApplicationsDirectory.
 Häxhatten automatically loads apps, parses templates, and renders output safely.
