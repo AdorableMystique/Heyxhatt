@@ -101,4 +101,5 @@ Contributions are welcome! Please fork the repo, create a branch for your featur
 
 License
 
-MIT License © 2026 Monica Hart
+GNU General Public License v3.0 (GPL-3.0)
+© 2026 Monica Hart
