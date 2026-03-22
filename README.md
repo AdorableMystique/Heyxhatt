@@ -35,6 +35,8 @@ Häxhatten enforces a **security-first approach** by:
 This allows developers to build complex PHP applications with confidence, avoiding common pitfalls like duplicate output or unsafe third-party scripts.
 
 ---
+##Design Philosophy:
+“Instance-based programming is largely unnecessary for H(ay)xHatten, because the framework is a single-run engine: it loads configuration, templates, and plugins, performs security checks, renders output, and terminates to conserve resources. The main exception is database connections, which use instances to manage separate connections cleanly. If H(ay)xHAtten were extended to run continuously, instance-based objects could be introduced for managing user sessions or other persistent state.”
 
 ## Features
 
